@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ContactListApp</string>
+    <string name="action_reset">Alle contacten verwijderen</string>
+    <string name="hint_name">Naam...</string>
+    <string name="hint_email">E-mailadres...</string>
+    <string name="hint_phone">Telefoonnummer...</string>
+    <string name="button_save">Opslaan</string>
+    <string name="empty_not_saved">Contact niet opgeslagen, want het veld was leeg.</string>
+    <string name="pfdescription">profile picture</string>
+</resources>
