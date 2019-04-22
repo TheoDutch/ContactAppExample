@@ -21,4 +21,9 @@ public interface ContactDao {
     @Query("SELECT * from contact_table ORDER BY name ASC")
     LiveData<List<Contact>> getAllContacts();
 
+    @Query("SELECT * FROM contact_table WHERE name LIKE :search " +
+            "OR email LIKE :search")
+    LiveData<List<Contact>> searchContact(String search);
+
+
 }

@@ -10,7 +10,12 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardElevation="0.7dp"
+        android:layout_margin="@dimen/big_padding"
+        android:clickable="true"
+        app:cardBackgroundColor="@android:color/holo_orange_light"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="@dimen/small_padding"
+        app:cardPreventCornerOverlap="true"
         app:contentPadding="@dimen/small_padding">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,17 +24,14 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:contentDescription="@string/pfdescription"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
+                tools:layout_editor_absoluteX="48dp"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
@@ -62,7 +64,6 @@
                 android:text="@string/hint_email"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.581"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="parent" />
 

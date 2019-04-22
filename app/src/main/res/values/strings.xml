@@ -1,10 +1,31 @@
 <resources>
     <string name="app_name">ContactListApp</string>
     <string name="action_reset">Alle contacten verwijderen</string>
+    <string name="action_profile">Profiel weergeven</string>
     <string name="hint_name">Naam...</string>
     <string name="hint_email">E-mailadres...</string>
     <string name="hint_phone">Telefoonnummer...</string>
     <string name="button_save">Opslaan</string>
     <string name="empty_not_saved">Contact niet opgeslagen, want het veld was leeg.</string>
     <string name="pfdescription">profile picture</string>
+    <string name="bttn_pf">Profielfoto toevoegen</string>
+    <string name="profilepicTemplate" />
+    <string name="permission_necessary">Toestemming verlenen</string>
+    <string name="storage_permission_is_necessary_to_wrote_event">Verleen toestemming om via deze app fotos te kunnen laden.</string>
+    <string name="confirm_title">Alle contacten verwijderen</string>
+    <string name="confirm_message">Weet u zeker dat u ALLE contacten wilt verwijderen?</string>
+    <string name="profile_name">Theo Pijkeren</string>
+    <string name="profile_email">theo@mailfence.com</string>
+    <string name="profile_phone">06-31305791</string>
+    <string name="profile_motivation">Ik ben een software developer met een sterke
+        interesse in sociale en maatschappelijke toepassingen van software en kunstmatige
+        intelligentie. Als Android Software Developer zoek ik enthousiast naar gebruiksvriendelijke
+        vertalingen van de wensen van opdrachtgevers of klanten. Ik heb brede kennis over o.a.
+        software ontwikkeling, neurale netwerken, sociale robotica, data mining en zoekmachines.
+    </string>
+    <string name="search">Zoeken</string>
+    <string name="search_hint">Zoek op naam of e-mail</string>
+    <string name="pic_cancel">Geen profielfoto geselecteerd</string>
+    <string name="pic_success">Profielfoto geselecteerd</string>
+
 </resources>

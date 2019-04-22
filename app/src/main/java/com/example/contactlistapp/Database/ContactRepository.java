@@ -24,7 +24,9 @@ public class ContactRepository {
         return allContacts;
     }
 
-    public void deleteData() { contactDao.deleteAll(); }
+    public void deleteData() {
+        new deleteAsyncTask(contactDao).execute();
+    }
 
     // Ensures that long-running operations are not excuted on the main thread
     public void insert(Contact contact){
@@ -45,4 +47,18 @@ public class ContactRepository {
             return null;
         }
     }
+
+    private static class deleteAsyncTask extends AsyncTask<Void, Void, Void> {
+
+        private ContactDao mAsyncTaskDao;
+
+        deleteAsyncTask(ContactDao dao) { mAsyncTaskDao = dao; }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            mAsyncTaskDao.deleteAll();
+            return null;
+        }
+    }
+
 }

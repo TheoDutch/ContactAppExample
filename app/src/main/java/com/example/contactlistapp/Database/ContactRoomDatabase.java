@@ -17,7 +17,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Contact.class}, version = 1)
+@Database(entities = {Contact.class}, version = 2)
 public abstract class ContactRoomDatabase extends RoomDatabase {
 
     public abstract ContactDao contactDao();
@@ -63,6 +63,7 @@ public abstract class ContactRoomDatabase extends RoomDatabase {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             ContactRoomDatabase.class, "contact_database")
                             .addCallback(roomDatabaseCallBack)
+                            .fallbackToDestructiveMigration()
                             .build();
                 }
             }

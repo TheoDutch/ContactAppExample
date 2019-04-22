@@ -1,13 +1,14 @@
 package com.example.contactlistapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.contactlistapp.Database.ContactViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
@@ -74,10 +75,18 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+
+        switch(id){
+            case R.id.action_deleteall:
+                deleteAll(item);
+                break;
+            case R.id.action_profile:
+                Intent profileIntent = new Intent(MainActivity.this,
+                        ProfileActivity.class);
+                startActivity(profileIntent);
+
         }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -88,7 +97,8 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == NEW_CONTACT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Contact contact = new Contact(0, extras.getString("NAME_REPLY"),
-                    extras.getString("EMAIL_REPLY"), extras.getString("PHONE_REPLY")); // id=0 to autogenerate unique key.
+                    extras.getString("EMAIL_REPLY"), extras.getString("PHONE_REPLY"),
+                    extras.getString("PATH_REPLY")); // id=0 to autogenerate unique key.
             contactViewModel.insert(contact);
         } else {
             Toast.makeText(
@@ -99,6 +109,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void deleteAll(MenuItem item){
-        contactViewModel.deleteData();
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.confirm_title)
+                .setMessage(R.string.confirm_message)
+                .setIcon(R.drawable.ic_warning_red_24dp)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        contactViewModel.deleteData();
+                    }})
+                .setNegativeButton(android.R.string.no, null).show();
+
     }
 }
